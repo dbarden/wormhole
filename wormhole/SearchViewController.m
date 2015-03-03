@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 azapp. All rights reserved.
 //
 
+// TODO: Rotation screws up with the searchViewController
+// TODO: Is there a better way to provide the selected cell to CreateItinerary? I feel dirty
 #import "SearchViewController.h"
 #import "HereAPI.h"
 
@@ -19,7 +21,7 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 
 @property (nonatomic, strong, readwrite) Place *selectedPlace;
 
-@property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic, weak) UISearchController *searchController;
 @end
 
 @implementation SearchViewController
@@ -34,7 +36,6 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
-
 }
 
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 azapp. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import "Place.h"
 
 @interface SearchViewController : UITableViewController <UISearchResultsUpdating>

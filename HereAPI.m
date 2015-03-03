@@ -11,6 +11,12 @@
 
 static NSString *const SearchBaseURL = @"http://places.cit.api.here.com/places/v1/discover/search";
 
+static NSString *const HereTransportMapping[3] = {
+    @"fastest;pedestrian",
+    @"fastest;publicTransportTimeTable",
+    @"fastest;car",
+};
+
 @interface HereAPI()
 
 @property (nonatomic, copy) NSString *appId;
@@ -44,6 +50,12 @@ static NSString *const SearchBaseURL = @"http://places.cit.api.here.com/places/v
     return [[self sharedInstance] requestSearchWithQuery:query location:location success:success failure:failure];
 }
 
++ (NSURLSessionDataTask *)requestRouteWithPlaces:(NSArray *)places
+                                            mode:(HereTransportMode)transportMode
+{
+    return [[self sharedInstance] requestRouteWithPlaces:places mode:transportMode failure:nil];
+}
+
 - (void)setAppId:(NSString *)appId appCode:(NSString *)appCode
 {
     self.appId = appId;
@@ -65,9 +77,10 @@ static NSString *const SearchBaseURL = @"http://places.cit.api.here.com/places/v
     urlComponents.host = @"places.cit.api.here.com";
     urlComponents.path = @"/places/v1/discover/search";
 
-    NSURLQueryItem *size = [NSURLQueryItem queryItemWithName:@"size" value:@"10"];
+
     NSURLQueryItem *appId = [NSURLQueryItem queryItemWithName:@"app_id" value:self.appId];
     NSURLQueryItem *appCode = [NSURLQueryItem queryItemWithName:@"app_code" value:self.appCode];
+    NSURLQueryItem *size = [NSURLQueryItem queryItemWithName:@"size" value:@"10"];
     NSURLQueryItem *queryItem = [NSURLQueryItem queryItemWithName:@"q" value:query];
     NSURLQueryItem *at = [NSURLQueryItem queryItemWithName:@"at" value:[NSString stringWithFormat:@"%f,%f", location.coordinate.latitude, location.coordinate.longitude]];
 
@@ -84,7 +97,6 @@ static NSString *const SearchBaseURL = @"http://places.cit.api.here.com/places/v
             failure(error);
             return;
         }
-        NSLog(@"***");
 
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
@@ -99,5 +111,57 @@ static NSString *const SearchBaseURL = @"http://places.cit.api.here.com/places/v
     return dataTask;
 }
 
+// TODO: Add language
+- (NSURLSessionDataTask *)requestRouteWithPlaces:(NSArray *)places
+                                            mode:(HereTransportMode)transportMode
+                                         failure:(void (^)(NSError *error))failure
+{
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] init];
+    urlComponents.scheme = @"http";
+    urlComponents.host = @"route.cit.api.here.com";
+    urlComponents.path = @"/routing/7.2/calculateroute.json";
+
+
+    __block NSMutableArray *queryItems = [NSMutableArray array];
+    NSURLQueryItem *appId = [NSURLQueryItem queryItemWithName:@"app_id" value:self.appId];
+    NSURLQueryItem *appCode = [NSURLQueryItem queryItemWithName:@"app_code" value:self.appCode];
+    NSURLQueryItem *instructionFormat = [NSURLQueryItem queryItemWithName:@"instructionFormat" value:@"text"];
+
+    NSURLQueryItem *mode = [NSURLQueryItem queryItemWithName:@"mode" value:HereTransportMapping[transportMode]];
+
+    [queryItems addObject:appId];
+    [queryItems addObject:appCode];
+    [queryItems addObject:instructionFormat];
+    [queryItems addObject:mode];
+
+    [places enumerateObjectsUsingBlock:^(Place *obj, NSUInteger idx, BOOL *stop) {
+        NSString *queryItemName = [NSString stringWithFormat:@"waypoint%lu",(unsigned long)idx];
+        NSString *queryItemValue = [NSString stringWithFormat:@"geo!%f,%f", obj.location.coordinate.latitude, obj.location.coordinate.longitude];
+        NSURLQueryItem *waypoint = [NSURLQueryItem queryItemWithName:queryItemName value:queryItemValue];
+        [queryItems addObject:waypoint];
+    }];
+
+    urlComponents.queryItems = queryItems;
+
+    NSURLRequest *requestURL = [NSURLRequest requestWithURL:urlComponents.URL];
+
+    NSLog(@"Requesting %@", requestURL.URL.absoluteString);
+
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:requestURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+
+        if (error || httpResponse.statusCode > 400) {
+            failure(error);
+            return;
+        }
+        // Parse the route
+    }];
+
+    return dataTask;
+
+}
 
 @end
+
+

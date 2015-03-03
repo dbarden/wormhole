@@ -15,6 +15,7 @@ NSString *const CreateItineraryCellIdentifier = @"CreateItineraryCellIdentifier"
 @property (nonatomic, strong) NSMutableArray *locations;
 
 @end
+
 @implementation CreateItineraryDataSource
 
 - (instancetype)init
@@ -65,6 +66,11 @@ NSString *const CreateItineraryCellIdentifier = @"CreateItineraryCellIdentifier"
 - (void)addPlace:(Place *)place
 {
     [self.locations addObject:place];
+}
+
+- (NSArray *)places
+{
+    return [self.locations copy];
 }
 
 @end

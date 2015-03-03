@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 azapp. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
+@import Foundation;
+@import CoreLocation;
 
 @interface Place : NSObject
 

@@ -6,12 +6,14 @@
 //  Copyright (c) 2015 azapp. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import "Place.h"
 
 FOUNDATION_EXPORT NSString *const CreateItineraryCellIdentifier;
 
 @interface CreateItineraryDataSource : NSObject <UITableViewDataSource>
+
+@property (nonatomic, strong, readonly) NSArray *places;
 
 - (void)addPlace:(Place *)place;
 

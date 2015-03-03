@@ -6,14 +6,17 @@
 //  Copyright (c) 2015 azapp. All rights reserved.
 //
 
+// TODO: Remove duplicated entries
+
 #import "CreateItineraryViewController.h"
-#import "SearchViewController.h"
 #import "CreateItineraryDataSource.h"
-// TODO: Prefix the classes
+#import "SearchViewController.h"
+#import "ViewItineraryViewController.h"
+#import "HereAPI.h"
 
 static NSString *const cellIdentifier = @"CellIdentifier";
 
-@interface CreateItineraryViewController () <UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate>
+@interface CreateItineraryViewController () <UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editTableView;
 
@@ -47,19 +50,16 @@ static NSString *const cellIdentifier = @"CellIdentifier";
     [self.searchController.searchBar sizeToFit];
     self.searchController.delegate = self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
-
-    //Footer
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTitle:NSLocalizedString(@"calculate_route", nil) forState:UIControlStateNormal];
-    [button setTitle:NSLocalizedString(@"calculate_route", nil) forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(calculateRoute) forControlEvents:UIControlEventTouchUpInside];
-    [button sizeToFit];
-    self.tableView.tableFooterView = button;
 }
 
-- (void)calculateRoute
+- (IBAction)calculateRoute
 {
-    NSLog(@"***");
+    if (self.dataSource.places.count < 2){
+        UIAlertController *alertController = [self createAlertController];
+        [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        [self performSegueWithIdentifier:@"ViewItinerary" sender:self];
+    }
 }
 
 - (IBAction)editTableView:(id)sender
@@ -82,4 +82,26 @@ static NSString *const cellIdentifier = @"CellIdentifier";
         [self.tableView reloadData];
     }
 }
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ViewItinerary"]) {
+        ViewItineraryViewController *viewItineraryVC = segue.destinationViewController;
+        viewItineraryVC.places = self.dataSource.places;
+    }
+}
+
+#pragma mark - Helper Methods
+- (UIAlertController *)createAlertController
+{
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Failure", nil)
+                                                                             message:NSLocalizedString(@"Please add at least two points", nil)
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:dismissAction];
+    return alertController;
+}
+
 @end

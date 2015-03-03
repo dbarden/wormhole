@@ -12,6 +12,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="V9S-tC-yW6">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYU-uy-cQh">
+                                    <rect key="frame" x="245" y="7" width="110" height="30"/>
+                                    <state key="normal" title="Calculate Route">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="calculateRoute" destination="TZf-qU-zsD" eventType="touchUpInside" id="4BA-Uw-7Ci"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="oYU-uy-cQh" secondAttribute="centerY" id="1Xe-Zg-Q5H"/>
+                                <constraint firstAttribute="centerX" secondItem="oYU-uy-cQh" secondAttribute="centerX" id="W7G-kc-I4u"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XdN-8S-55P">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -34,11 +54,43 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editTableView" destination="Wbl-Mq-BKO" id="nfo-sl-7OE"/>
+                        <segue destination="e4h-6U-m5Q" kind="show" identifier="ViewItinerary" id="P35-c5-pZh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OeB-DG-9Ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1083" y="457"/>
+        </scene>
+        <!--View your itinerary-->
+        <scene sceneID="nRj-w1-Qmy">
+            <objects>
+                <tableViewController id="e4h-6U-m5Q" customClass="ViewItineraryViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NeV-Xb-v0D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="tWp-Ua-yLB">
+                            <rect key="frame" x="0.0" y="64" width="600" height="139"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </mapView>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Myw-R5-F8j">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Myw-R5-F8j" id="fag-aC-0OC">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="e4h-6U-m5Q" id="KBZ-Sw-nkh"/>
+                            <outlet property="delegate" destination="e4h-6U-m5Q" id="swh-8h-pHq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="View your itinerary" id="Fdw-B9-1mK"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="giW-Ew-bGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880" y="457"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sEK-rX-kDF">
