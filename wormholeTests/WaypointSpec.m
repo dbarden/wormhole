@@ -23,9 +23,9 @@ describe(@"Waypoint", ^{
                                    @"mappedPosition": @{@"latitude": latitude,
                                                         @"longitude":longitude}};
         Waypoint *sut = [[Waypoint alloc] initWithDictionary:testData];
-        expect(sut.label).to.equal(labelName);
-        expect(sut.position.coordinate.latitude).to.equal([latitude doubleValue]);
-        expect(sut.position.coordinate.longitude).to.equal([longitude doubleValue]);
+        expect(sut.title).to.equal(labelName);
+        expect(sut.coordinate.latitude).to.equal([latitude doubleValue]);
+        expect(sut.coordinate.longitude).to.equal([longitude doubleValue]);
     });
 });
 SpecEnd

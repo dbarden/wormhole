@@ -31,7 +31,6 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
     self.places = [NSMutableArray array];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:SearchCellReuseIdentifier];
 
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
@@ -48,8 +47,13 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SearchCellReuseIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SearchCellReuseIdentifier];
+    }
+
     if (self.places.count > 0) {
         cell.textLabel.text = [self.places[indexPath.row] valueForKey:@"title"];
+        cell.detailTextLabel.text = [self.places[indexPath.row] valueForKey:@"vicinity"];
     } else {
         cell.textLabel.text = @"Please type at least 3 characters";
     }

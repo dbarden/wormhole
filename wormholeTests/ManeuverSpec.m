@@ -35,8 +35,8 @@ describe(@"Maneuver",^{
         expect(sut.instructions).to.equal(instruction);
         expect(sut.travelTime).to.equal([travelTime doubleValue]);
         expect(sut.length).to.equal([length doubleValue]);
-        expect(sut.position.coordinate.latitude).to.equal([latitude doubleValue]);
-        expect(sut.position.coordinate.longitude).to.equal([longitude doubleValue]);
+        expect(sut.coordinate.latitude).to.equal([latitude doubleValue]);
+        expect(sut.coordinate.longitude).to.equal([longitude doubleValue]);
 
     });
 });

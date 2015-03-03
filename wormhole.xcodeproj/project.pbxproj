@@ -14,6 +14,7 @@
 		D04D81F11AA62A1700F78EF1 /* ManeuverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F01AA62A1700F78EF1 /* ManeuverSpec.m */; };
 		D04D81F41AA62BFB00F78EF1 /* Leg.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F31AA62BFB00F78EF1 /* Leg.m */; };
 		D04D81F61AA62EB900F78EF1 /* LegSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F51AA62EB900F78EF1 /* LegSpec.m */; };
+		D04D81F81AA6338700F78EF1 /* RouteSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F71AA6338700F78EF1 /* RouteSpec.m */; };
 		D0B75F3A1AA4B058006DB445 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F391AA4B058006DB445 /* main.m */; };
 		D0B75F3D1AA4B058006DB445 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F3C1AA4B058006DB445 /* AppDelegate.m */; };
 		D0B75F401AA4B058006DB445 /* CreateItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F3F1AA4B058006DB445 /* CreateItineraryViewController.m */; };
@@ -58,6 +59,7 @@
 		D04D81F21AA62BFB00F78EF1 /* Leg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leg.h; sourceTree = "<group>"; };
 		D04D81F31AA62BFB00F78EF1 /* Leg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leg.m; sourceTree = "<group>"; };
 		D04D81F51AA62EB900F78EF1 /* LegSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegSpec.m; sourceTree = "<group>"; };
+		D04D81F71AA6338700F78EF1 /* RouteSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSpec.m; sourceTree = "<group>"; };
 		D0B75F341AA4B058006DB445 /* wormhole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wormhole.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B75F381AA4B058006DB445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0B75F391AA4B058006DB445 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				D04D81EB1AA626AC00F78EF1 /* WaypointSpec.m */,
 				D04D81F01AA62A1700F78EF1 /* ManeuverSpec.m */,
 				D04D81F51AA62EB900F78EF1 /* LegSpec.m */,
+				D04D81F71AA6338700F78EF1 /* RouteSpec.m */,
 			);
 			path = wormholeTests;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				D04D81EC1AA626AC00F78EF1 /* WaypointSpec.m in Sources */,
 				D04D81F11AA62A1700F78EF1 /* ManeuverSpec.m in Sources */,
 				D04D81F61AA62EB900F78EF1 /* LegSpec.m in Sources */,
+				D04D81F81AA6338700F78EF1 /* RouteSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

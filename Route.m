@@ -34,8 +34,8 @@ static NSString *const TransportModesKey = @"transportModes";
 {
     self = [super init];
     if (self) {
-        _distance = [dictionary[DistanceKey] unsignedIntegerValue];
-        _travelTime = [dictionary[BaseTimeKey] doubleValue];
+        _distance = [dictionary[SummaryKey][DistanceKey] unsignedIntegerValue];
+        _travelTime = [dictionary[SummaryKey][BaseTimeKey] doubleValue];
         _transportMode = [dictionary[ModeKey][TransportModesKey] firstObject];
 
         NSMutableArray *waypointsMutableArray = [NSMutableArray array];
@@ -54,4 +54,33 @@ static NSString *const TransportModesKey = @"transportModes";
     }
     return self;
 }
+
+- (MKCoordinateRegion)routeRegion
+{
+    CLLocationCoordinate2D topLeftCoord;
+    topLeftCoord.latitude = -90;
+    topLeftCoord.longitude = 180;
+
+    CLLocationCoordinate2D bottomRightCoord;
+    bottomRightCoord.latitude = 90;
+    bottomRightCoord.longitude = -180;
+
+    for (Waypoint *waypoint in self.waypoints)
+    {
+        topLeftCoord.longitude = fmin(topLeftCoord.longitude, waypoint.coordinate.longitude);
+        topLeftCoord.latitude = fmax(topLeftCoord.latitude, waypoint.coordinate.latitude);
+
+        bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, waypoint.coordinate.longitude);
+        bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, waypoint.coordinate.latitude);
+    }
+
+    MKCoordinateRegion region;
+    region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
+    region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
+    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1;
+    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1;
+
+    return region;
+}
+
 @end

@@ -35,12 +35,16 @@ NSString *const CreateItineraryCellIdentifier = @"CreateItineraryCellIdentifier"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CreateItineraryCellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CreateItineraryCellIdentifier];
+    }
 
     if (self.locations.count == 0) {
         cell.textLabel.text = NSLocalizedString(@"add_entry", nil);
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
     } else {
         cell.textLabel.text = [self.locations[indexPath.row] valueForKey:@"title"];
+        cell.detailTextLabel.text = [self.locations[indexPath.row] valueForKey:@"vicinity"];
         cell.textLabel.textAlignment = NSTextAlignmentLeft;
     }
 

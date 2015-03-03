@@ -8,25 +8,28 @@
 
 #import "Place.h"
 
+static NSString *const PositionKey = @"position";
+static NSString *const TitleKey = @"title";
+static NSString *const VicinityKey = @"vicinity";
+
 @implementation Place
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
-        _title = dictionary[@"title"];
-        _location = [[CLLocation alloc] initWithLatitude:[dictionary[@"position"][0] doubleValue] longitude:[dictionary[@"position"][1] doubleValue]];
+        _title = dictionary[TitleKey];
+        CLLocationDegrees latitude = [dictionary[PositionKey][0] doubleValue];
+        CLLocationDegrees longitude = [dictionary[PositionKey][1] doubleValue];
+        _coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+        _vicinity = [[dictionary[VicinityKey] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
     }
 
     return self;
 }
 
-- (void)dealloc
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ - %@", self.title, self.location];
+    return [NSString stringWithFormat:@"%@ - {%f, %f}", self.title, self.coordinate.latitude, self.coordinate.longitude];
 }
 @end

@@ -15,6 +15,8 @@ typedef NS_ENUM(NSInteger, HereTransportMode) {
     HereTransportModeCar
 };
 
+@class Route;
+
 @interface HereAPI : NSObject
 
 /**
@@ -50,10 +52,14 @@ typedef NS_ENUM(NSInteger, HereTransportMode) {
  *
  *  @param places        An array containing `Place` objects
  *  @param transportMode The desired transport mode
+ *  @param success       The block to be executed in case of success
+ *  @param failure       The block to be executed in case of failure
  *
  *  @return A configured NSURLSessionDataTask
  */
 + (NSURLSessionDataTask *)requestRouteWithPlaces:(NSArray *)places
-                                            mode:(HereTransportMode)transportMode;
+                                            mode:(HereTransportMode)transportMode
+                                         success:(void (^)(Route *route))success
+                                         failure:(void (^)(NSError *))failure;
 
 @end

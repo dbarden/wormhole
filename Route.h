@@ -7,6 +7,7 @@
 //
 
 @import Foundation;
+@import MapKit;
 
 @interface Route : NSObject
 
@@ -24,5 +25,15 @@
  *  @return a configure instance of route
  */
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary NS_DESIGNATED_INITIALIZER;
+
+
+/**
+ *  Return a region to show the map.
+ *
+ *  The center of region will be the midpoint between the first and last waypoint. The span will be the delta between the first and last waypoint multiplied by 2
+ *
+ *  @return A map region;
+ */
+- (MKCoordinateRegion)routeRegion;
 
 @end

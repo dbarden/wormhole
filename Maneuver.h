@@ -8,12 +8,12 @@
 
 @import Foundation;
 @import CoreLocation;
+@import MapKit;
 
 @interface Maneuver : NSObject
 
-
 @property (nonatomic, copy, readonly) NSString *instructions;
-@property (nonatomic, strong, readonly) CLLocation *position;
+@property (nonatomic, assign, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, assign, readonly) NSTimeInterval travelTime;
 @property (nonatomic, assign, readonly) NSUInteger length;
 

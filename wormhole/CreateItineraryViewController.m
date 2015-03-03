@@ -37,9 +37,6 @@ static NSString *const cellIdentifier = @"CellIdentifier";
     self.tableView.delegate = self;
     self.tableView.allowsSelection = NO;
 
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CreateItineraryCellIdentifier];
-
-
     // SearchViewController
     SearchViewController *searchViewController = [[SearchViewController alloc] init];
     self.searchViewController = searchViewController;

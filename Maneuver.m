@@ -19,7 +19,7 @@ static NSString *const LongitudeKey = @"longitude";
 @interface Maneuver ()
 
 @property (nonatomic, copy, readwrite) NSString *instructions;
-@property (nonatomic, strong, readwrite) CLLocation *position;
+@property (nonatomic, assign, readwrite) CLLocationCoordinate2D coordinate;
 @property (nonatomic, assign, readwrite) NSTimeInterval travelTime;
 @property (nonatomic, assign, readwrite) NSUInteger length;
 
@@ -38,7 +38,7 @@ static NSString *const LongitudeKey = @"longitude";
 
         CLLocationDegrees latitude = [dictionary[PositionKey][LatitudeKey] doubleValue];
         CLLocationDegrees longitude = [dictionary[PositionKey][LongitudeKey] doubleValue];
-        _position = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+        _coordinate = CLLocationCoordinate2DMake(latitude, longitude);
     }
     return self;
 }

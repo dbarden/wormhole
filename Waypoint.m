@@ -15,8 +15,8 @@ static NSString *const LongitudeKey = @"longitude";
 
 @interface Waypoint ()
 
-@property (nonatomic, copy, readwrite) NSString *label;
-@property (nonatomic, strong, readwrite) CLLocation *position;
+@property (nonatomic, copy, readwrite) NSString *title;
+@property (nonatomic, assign, readwrite) CLLocationCoordinate2D coordinate;
 
 @end
 
@@ -26,11 +26,11 @@ static NSString *const LongitudeKey = @"longitude";
 {
     self = [super init];
     if (self) {
-        _label = dictionary[NameKey];
+        _title = dictionary[NameKey];
 
         CLLocationDegrees latitude = [dictionary[PositionKey][LatitudeKey] doubleValue];
         CLLocationDegrees longitude = [dictionary[PositionKey][LongitudeKey] doubleValue];
-        _position = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+        _coordinate = CLLocationCoordinate2DMake(latitude, longitude);
     }
     return self;
 }

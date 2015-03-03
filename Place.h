@@ -13,6 +13,7 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, copy, readonly) NSString *title;
-@property (nonatomic, strong, readonly) CLLocation *location;
+@property (nonatomic, copy, readonly) NSString *vicinity;
+@property (nonatomic, assign, readonly) CLLocationCoordinate2D coordinate;
 
 @end
