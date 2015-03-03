@@ -2,10 +2,6 @@ platform :ios, "8.0"
 inhibit_all_warnings!
 
 
-target "wormhole" do
-  pod 'AFNetworking', '~> 2.5.1' 
-end
-
 target "wormholeTests" do
   pod 'Specta', '~> 0.3.2'
   pod 'Expecta', '~> 0.3.2'
