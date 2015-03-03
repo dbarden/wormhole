@@ -10,13 +10,11 @@
 
 @interface Route : NSObject
 
-@property (nonatomic, strong, readonly) id startPoint;
-@property (nonatomic, strong, readonly) id endPoint;
-@property (nonatomic, strong, readonly) NSArray *maneuvers;
 @property (nonatomic, strong, readonly) NSArray *waypoints;
-@property (nonatomic, assign, readonly) NSString *transportMode;
+@property (nonatomic, strong, readonly) NSArray *legs;
+@property (nonatomic, copy, readonly) NSString *transportMode;
 @property (nonatomic, assign, readonly) NSUInteger distance;
-@property (nonatomic, assign, readonly) NSTimeInterval duration;
+@property (nonatomic, assign, readonly) NSTimeInterval travelTime;
 
 /**
  *  Create a route object.

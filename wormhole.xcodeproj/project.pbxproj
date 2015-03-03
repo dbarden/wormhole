@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		ACA57549D18BBC4B10AE6D17 /* libPods-wormhole.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B9762547A575A3FA6E111A /* libPods-wormhole.a */; };
+		D04D81EA1AA6248F00F78EF1 /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81E91AA6248F00F78EF1 /* Waypoint.m */; };
+		D04D81EC1AA626AC00F78EF1 /* WaypointSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81EB1AA626AC00F78EF1 /* WaypointSpec.m */; };
+		D04D81EF1AA6286700F78EF1 /* Maneuver.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81EE1AA6286700F78EF1 /* Maneuver.m */; };
+		D04D81F11AA62A1700F78EF1 /* ManeuverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F01AA62A1700F78EF1 /* ManeuverSpec.m */; };
+		D04D81F41AA62BFB00F78EF1 /* Leg.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F31AA62BFB00F78EF1 /* Leg.m */; };
+		D04D81F61AA62EB900F78EF1 /* LegSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F51AA62EB900F78EF1 /* LegSpec.m */; };
 		D0B75F3A1AA4B058006DB445 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F391AA4B058006DB445 /* main.m */; };
 		D0B75F3D1AA4B058006DB445 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F3C1AA4B058006DB445 /* AppDelegate.m */; };
 		D0B75F401AA4B058006DB445 /* CreateItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F3F1AA4B058006DB445 /* CreateItineraryViewController.m */; };
@@ -43,6 +49,15 @@
 		50B9762547A575A3FA6E111A /* libPods-wormhole.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wormhole.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		987A6E07A6E0729946D3C770 /* Pods-wormhole.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wormhole.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wormhole/Pods-wormhole.debug.xcconfig"; sourceTree = "<group>"; };
 		BB5B0086A8935EA16CD521F6 /* Pods-wormhole.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wormhole.release.xcconfig"; path = "Pods/Target Support Files/Pods-wormhole/Pods-wormhole.release.xcconfig"; sourceTree = "<group>"; };
+		D04D81E81AA6248F00F78EF1 /* Waypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waypoint.h; sourceTree = "<group>"; };
+		D04D81E91AA6248F00F78EF1 /* Waypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waypoint.m; sourceTree = "<group>"; };
+		D04D81EB1AA626AC00F78EF1 /* WaypointSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaypointSpec.m; sourceTree = "<group>"; };
+		D04D81ED1AA6286700F78EF1 /* Maneuver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maneuver.h; sourceTree = "<group>"; };
+		D04D81EE1AA6286700F78EF1 /* Maneuver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Maneuver.m; sourceTree = "<group>"; };
+		D04D81F01AA62A1700F78EF1 /* ManeuverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManeuverSpec.m; sourceTree = "<group>"; };
+		D04D81F21AA62BFB00F78EF1 /* Leg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leg.h; sourceTree = "<group>"; };
+		D04D81F31AA62BFB00F78EF1 /* Leg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leg.m; sourceTree = "<group>"; };
+		D04D81F51AA62EB900F78EF1 /* LegSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegSpec.m; sourceTree = "<group>"; };
 		D0B75F341AA4B058006DB445 /* wormhole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wormhole.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B75F381AA4B058006DB445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0B75F391AA4B058006DB445 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,6 +184,9 @@
 			children = (
 				D0B75F511AA4B058006DB445 /* Supporting Files */,
 				D0FBB9A11AA57FFB001D5270 /* HereAPISpec.m */,
+				D04D81EB1AA626AC00F78EF1 /* WaypointSpec.m */,
+				D04D81F01AA62A1700F78EF1 /* ManeuverSpec.m */,
+				D04D81F51AA62EB900F78EF1 /* LegSpec.m */,
 			);
 			path = wormholeTests;
 			sourceTree = "<group>";
@@ -217,6 +235,12 @@
 				D0FBB99F1AA514CA001D5270 /* Place.m */,
 				D0FBB9A41AA584BE001D5270 /* Route.h */,
 				D0FBB9A51AA584BE001D5270 /* Route.m */,
+				D04D81E81AA6248F00F78EF1 /* Waypoint.h */,
+				D04D81E91AA6248F00F78EF1 /* Waypoint.m */,
+				D04D81ED1AA6286700F78EF1 /* Maneuver.h */,
+				D04D81EE1AA6286700F78EF1 /* Maneuver.m */,
+				D04D81F21AA62BFB00F78EF1 /* Leg.h */,
+				D04D81F31AA62BFB00F78EF1 /* Leg.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -398,12 +422,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D04D81F41AA62BFB00F78EF1 /* Leg.m in Sources */,
+				D04D81EF1AA6286700F78EF1 /* Maneuver.m in Sources */,
 				D0B75F401AA4B058006DB445 /* CreateItineraryViewController.m in Sources */,
 				D0FBB9A61AA584BE001D5270 /* Route.m in Sources */,
 				D0B75F3D1AA4B058006DB445 /* AppDelegate.m in Sources */,
 				D0FBB9A01AA514CA001D5270 /* Place.m in Sources */,
 				D0FBB99B1AA4FB60001D5270 /* CreateItineraryDataSource.m in Sources */,
 				D0FBBA9A1AA5D9AE001D5270 /* ViewItineraryViewController.m in Sources */,
+				D04D81EA1AA6248F00F78EF1 /* Waypoint.m in Sources */,
 				D0FBB9981AA4F67D001D5270 /* SearchViewController.m in Sources */,
 				D0FBB98F1AA4ECEB001D5270 /* HereAPI.m in Sources */,
 				D0B75F3A1AA4B058006DB445 /* main.m in Sources */,
@@ -415,6 +442,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0FBB9A21AA57FFB001D5270 /* HereAPISpec.m in Sources */,
+				D04D81EC1AA626AC00F78EF1 /* WaypointSpec.m in Sources */,
+				D04D81F11AA62A1700F78EF1 /* ManeuverSpec.m in Sources */,
+				D04D81F61AA62EB900F78EF1 /* LegSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
