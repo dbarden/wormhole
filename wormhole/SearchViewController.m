@@ -34,14 +34,25 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self.locationManager startUpdatingLocation];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.locationManager stopUpdatingLocation];
 
+}
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.places.count;
+    return self.places.count ? self.places.count : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,7 +66,8 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
         cell.textLabel.text = [self.places[indexPath.row] valueForKey:@"title"];
         cell.detailTextLabel.text = [self.places[indexPath.row] valueForKey:@"vicinity"];
     } else {
-        cell.textLabel.text = @"Please type at least 3 characters";
+        cell.textLabel.text = NSLocalizedString(@"please_three_chars", nil);
+        cell.detailTextLabel.text = nil;
     }
 
     return cell;
@@ -65,6 +77,9 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.places.count == 0) {
+        return;
+    }
     Place *place = self.places[indexPath.row];
     self.selectedPlace = place;
     [self.searchController setActive:NO];
@@ -81,7 +96,7 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 
     NSString *query = searchController.searchBar.text;
     if (query.length < 3) {
-        self.places = [NSMutableArray array];
+        self.places = nil;
         self.selectedPlace = nil;
         [self.tableView reloadData];
         return;
@@ -103,7 +118,6 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
     }];
 
     [self performSelector:@selector(downloadData) withObject:nil afterDelay:1];
-
 }
 
 - (void)downloadData

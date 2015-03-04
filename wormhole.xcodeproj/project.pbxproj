@@ -14,6 +14,7 @@
 		D04D81F41AA62BFB00F78EF1 /* Leg.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F31AA62BFB00F78EF1 /* Leg.m */; };
 		D04D81F61AA62EB900F78EF1 /* LegSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F51AA62EB900F78EF1 /* LegSpec.m */; };
 		D04D81F81AA6338700F78EF1 /* RouteSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81F71AA6338700F78EF1 /* RouteSpec.m */; };
+		D07975A71AA797A400A05A39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D07975A11AA78F9F00A05A39 /* Localizable.strings */; };
 		D0B75F3A1AA4B058006DB445 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F391AA4B058006DB445 /* main.m */; };
 		D0B75F3D1AA4B058006DB445 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F3C1AA4B058006DB445 /* AppDelegate.m */; };
 		D0B75F401AA4B058006DB445 /* CreateItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B75F3F1AA4B058006DB445 /* CreateItineraryViewController.m */; };
@@ -21,7 +22,6 @@
 		D0B75F451AA4B058006DB445 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B75F441AA4B058006DB445 /* Images.xcassets */; };
 		D0B75F481AA4B058006DB445 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B75F461AA4B058006DB445 /* LaunchScreen.xib */; };
 		D0FBB98F1AA4ECEB001D5270 /* HereAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB98E1AA4ECEB001D5270 /* HereAPI.m */; };
-		D0FBB9931AA4F321001D5270 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0FBB9921AA4F321001D5270 /* Localizable.strings */; };
 		D0FBB9981AA4F67D001D5270 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB9971AA4F67D001D5270 /* SearchViewController.m */; };
 		D0FBB99B1AA4FB60001D5270 /* CreateItineraryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB99A1AA4FB60001D5270 /* CreateItineraryDataSource.m */; };
 		D0FBB9A01AA514CA001D5270 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB99F1AA514CA001D5270 /* Place.m */; };
@@ -46,9 +46,6 @@
 		12EBA698A40C53A5A9F26662 /* Pods-wormholeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wormholeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wormholeTests/Pods-wormholeTests.release.xcconfig"; sourceTree = "<group>"; };
 		40B945D093B85387D088A70A /* Pods-wormholeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wormholeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wormholeTests/Pods-wormholeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CC951F3FD57E0BACDF1C753 /* libPods-wormholeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wormholeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50B9762547A575A3FA6E111A /* libPods-wormhole.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wormhole.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		987A6E07A6E0729946D3C770 /* Pods-wormhole.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wormhole.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wormhole/Pods-wormhole.debug.xcconfig"; sourceTree = "<group>"; };
-		BB5B0086A8935EA16CD521F6 /* Pods-wormhole.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wormhole.release.xcconfig"; path = "Pods/Target Support Files/Pods-wormhole/Pods-wormhole.release.xcconfig"; sourceTree = "<group>"; };
 		D04D81E81AA6248F00F78EF1 /* Waypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Waypoint.h; path = wormhole/Waypoint.h; sourceTree = "<group>"; };
 		D04D81E91AA6248F00F78EF1 /* Waypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Waypoint.m; path = wormhole/Waypoint.m; sourceTree = "<group>"; };
 		D04D81EB1AA626AC00F78EF1 /* WaypointSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaypointSpec.m; sourceTree = "<group>"; };
@@ -59,6 +56,7 @@
 		D04D81F31AA62BFB00F78EF1 /* Leg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Leg.m; path = wormhole/Leg.m; sourceTree = "<group>"; };
 		D04D81F51AA62EB900F78EF1 /* LegSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegSpec.m; sourceTree = "<group>"; };
 		D04D81F71AA6338700F78EF1 /* RouteSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSpec.m; sourceTree = "<group>"; };
+		D07975A41AA78FF100A05A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0B75F341AA4B058006DB445 /* wormhole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wormhole.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B75F381AA4B058006DB445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0B75F391AA4B058006DB445 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,11 +69,11 @@
 		D0B75F471AA4B058006DB445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D0B75F4D1AA4B058006DB445 /* wormholeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wormholeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B75F521AA4B058006DB445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0C68D991AA7999400827910 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		D0C68D9A1AA7999400827910 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D0C68D9B1AA7999400827910 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0FBB98D1AA4ECEB001D5270 /* HereAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HereAPI.h; path = wormhole/HereAPI.h; sourceTree = "<group>"; };
 		D0FBB98E1AA4ECEB001D5270 /* HereAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HereAPI.m; path = wormhole/HereAPI.m; sourceTree = "<group>"; };
-		D0FBB9921AA4F321001D5270 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ../Localizable.strings; sourceTree = "<group>"; };
-		D0FBB9941AA4F3A6001D5270 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
-		D0FBB9951AA4F3A6001D5270 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D0FBB9961AA4F67D001D5270 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		D0FBB9971AA4F67D001D5270 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		D0FBB9991AA4FB60001D5270 /* CreateItineraryDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateItineraryDataSource.h; sourceTree = "<group>"; };
@@ -113,8 +111,6 @@
 		B24DB31FD2AE0023DFB1D4EE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				987A6E07A6E0729946D3C770 /* Pods-wormhole.debug.xcconfig */,
-				BB5B0086A8935EA16CD521F6 /* Pods-wormhole.release.xcconfig */,
 				40B945D093B85387D088A70A /* Pods-wormholeTests.debug.xcconfig */,
 				12EBA698A40C53A5A9F26662 /* Pods-wormholeTests.release.xcconfig */,
 			);
@@ -125,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				D0FBBA9B1AA5E257001D5270 /* MapKit.framework */,
-				50B9762547A575A3FA6E111A /* libPods-wormhole.a */,
 				4CC951F3FD57E0BACDF1C753 /* libPods-wormholeTests.a */,
 			);
 			name = Frameworks;
@@ -170,7 +165,7 @@
 		D0B75F371AA4B058006DB445 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D0FBB9921AA4F321001D5270 /* Localizable.strings */,
+				D07975A11AA78F9F00A05A39 /* Localizable.strings */,
 				D0B75F3B1AA4B058006DB445 /* AppDelegate.h */,
 				D0B75F3C1AA4B058006DB445 /* AppDelegate.m */,
 				D0B75F381AA4B058006DB445 /* Info.plist */,
@@ -320,6 +315,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pt,
 			);
 			mainGroup = D0B75F2B1AA4B057006DB445;
 			productRefGroup = D0B75F351AA4B058006DB445 /* Products */;
@@ -337,8 +333,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07975A71AA797A400A05A39 /* Localizable.strings in Resources */,
 				D0B75F431AA4B058006DB445 /* Main.storyboard in Resources */,
-				D0FBB9931AA4F321001D5270 /* Localizable.strings in Resources */,
 				D0B75F481AA4B058006DB445 /* LaunchScreen.xib in Resources */,
 				D0B75F451AA4B058006DB445 /* Images.xcassets in Resources */,
 			);
@@ -429,11 +425,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D07975A11AA78F9F00A05A39 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D07975A41AA78FF100A05A39 /* Base */,
+				D0C68D9B1AA7999400827910 /* pt */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D0B75F411AA4B058006DB445 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D0B75F421AA4B058006DB445 /* Base */,
-				D0FBB9941AA4F3A6001D5270 /* pt-BR */,
+				D0C68D991AA7999400827910 /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -442,7 +448,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D0B75F471AA4B058006DB445 /* Base */,
-				D0FBB9951AA4F3A6001D5270 /* pt-BR */,
+				D0C68D9A1AA7999400827910 /* pt */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

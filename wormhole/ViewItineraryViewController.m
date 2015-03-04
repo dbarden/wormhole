@@ -157,14 +157,14 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
     if (indexPath.section == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"General"];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"General"];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"General"];
         }
         // Ok, it's already 23:00. Maybe I should call it a day
         if(indexPath.row == 0){
-            cell.textLabel.text = NSLocalizedString(@"Total Time", 0);
+            cell.textLabel.text = NSLocalizedString(@"total_time", 0);
             NSDateComponentsFormatter *componentFormatter = [[NSDateComponentsFormatter alloc] init];
 
-            componentFormatter.unitsStyle = NSDateComponentsFormatterUnitsStylePositional;
+            componentFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyleAbbreviated;
             componentFormatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorDropAll;
 
             NSString *formattedString = [componentFormatter stringFromTimeInterval:self.route.travelTime];
@@ -172,12 +172,12 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
             cell.detailTextLabel.text = formattedString;
         } else if (indexPath.row == 1) {
 
-            cell.textLabel.text = NSLocalizedString(@"Total Distance", nil);
-            NSLengthFormatter *lengthFormatter = [[NSLengthFormatter alloc] init];
+            cell.textLabel.text = NSLocalizedString(@"total_distance", nil);
 
-            cell.detailTextLabel.text = [lengthFormatter stringFromValue:self.route.distance unit:NSLengthFormatterUnitMeter];
+            MKDistanceFormatter *distanceFormatter = [[MKDistanceFormatter alloc] init];
+            cell.detailTextLabel.text = [distanceFormatter stringFromDistance:self.route.distance];
         } else if (indexPath.row == 2) {
-            cell.textLabel.text = NSLocalizedString(@"Transport mode", nil);
+            cell.textLabel.text = NSLocalizedString(@"transport_mode", nil);
             cell.detailTextLabel.text = self.route.transportMode;
         }
         return cell;
@@ -206,9 +206,9 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return NSLocalizedString(@"General Information", nil);
+        return NSLocalizedString(@"general_information", nil);
     } else if (section == 1) {
-        return  NSLocalizedString(@"Waypoints", nil);
+        return  NSLocalizedString(@"waypoints", nil);
     } else {
         Leg *leg = self.route.legs[section -2];
         return [NSString stringWithFormat:@"%@ -> %@", leg.startWaypoint.title, leg.endWaypoint.title];

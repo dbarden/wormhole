@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  wormhole
+
+  Created by Daniel Barden on 02/03/15.
+  Copyright (c) 2015 azapp. All rights reserved.
+*/
+"add_entry" = "Click on the lupe to add an entry";
+"search_locations" = "Search and Add Locations";
+"calculate_route" = "Calculate Route";
+"transport_mode" = "Transport Mode";
+"total_time" = "Total time";
+"total_distance" = "Total distance";
+"general_information" = "General Information";
+"please_three_chars" = "Please type at least 3 characters";

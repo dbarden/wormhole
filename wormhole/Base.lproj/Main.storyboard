@@ -100,7 +100,6 @@
                                 <action selector="segmentValueChanged:" destination="e4h-6U-m5Q" eventType="valueChanged" id="6YG-T6-WBH"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="LfA-7J-YPO"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="tWp-Ua-yLB" id="uXO-ef-lSI"/>

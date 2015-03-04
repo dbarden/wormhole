@@ -61,8 +61,8 @@ static NSString *const cellIdentifier = @"CellIdentifier";
 
 - (IBAction)editTableView:(id)sender
 {
+    self.tableView.editing = !self.tableView.editing;
     if (self.tableView.editing) {
-        self.editTableView.title = NSLocalizedString(@"Done", nil);
         self.tableView.editing = NO;
     } else {
         self.editTableView.title = NSLocalizedString(@"Edit", nil);
@@ -94,8 +94,8 @@ static NSString *const cellIdentifier = @"CellIdentifier";
 - (UIAlertController *)createAlertController
 {
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler:nil];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Failure", nil)
-                                                                             message:NSLocalizedString(@"Please add at least two points", nil)
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"failure", nil)
+                                                                             message:NSLocalizedString(@"two_points_warning", nil)
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:dismissAction];
     return alertController;

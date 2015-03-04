@@ -1,15 +1,15 @@
 
 /* Class = "IBUISegmentedControl"; 9X0-LP-qhf.segmentTitles[0] = "Walking"; ObjectID = "9X0-LP-qhf"; */
-"9X0-LP-qhf.segmentTitles[0]" = "Walking";
+"9X0-LP-qhf.segmentTitles[0]" = "A pé";
 
 /* Class = "IBUISegmentedControl"; 9X0-LP-qhf.segmentTitles[1] = "Public Trans."; ObjectID = "9X0-LP-qhf"; */
-"9X0-LP-qhf.segmentTitles[1]" = "Public Trans.";
+"9X0-LP-qhf.segmentTitles[1]" = "Trans. Público.";
 
 /* Class = "IBUISegmentedControl"; 9X0-LP-qhf.segmentTitles[2] = "Car"; ObjectID = "9X0-LP-qhf"; */
-"9X0-LP-qhf.segmentTitles[2]" = "Car";
+"9X0-LP-qhf.segmentTitles[2]" = "Carro";
 
 /* Class = "IBUINavigationItem"; title = "Create your itinerary"; ObjectID = "X2w-Yh-aQf"; */
-"X2w-Yh-aQf.title" = "Create your itinerary";
+"X2w-Yh-aQf.title" = "Crie seu Itinerário";
 
 /* Class = "IBUIButton"; normalTitle = "Calculate Route"; ObjectID = "oYU-uy-cQh"; */
-"oYU-uy-cQh.normalTitle" = "Calculate Route";
+"oYU-uy-cQh.normalTitle" = "Calcular Rota";
