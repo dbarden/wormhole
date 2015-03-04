@@ -1,0 +1,64 @@
+{
+    "results": {
+        "items": [
+                  {
+                  "averageRating": 5.0,
+                  "category": {
+                  "href": "http://places.cit.api.here.com/places/v1/categories/places/landmark-attraction?app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg",
+                  "id": "landmark-attraction",
+                  "system": "places",
+                  "title": "Landmark/Attraction",
+                  "type": "urn:nlp-types:category"
+                  },
+                  "distance": 1799467,
+                  "having": [],
+                  "href": "http://places.cit.api.here.com/places/v1/places/276u3360-8c971b44cb364d8ba89c117975302fc3;context=Zmxvdy1pZD1iYmE3Nzc3Mi01MzBkLTUwYmUtOTRiZS1mZDYxODIxNzJkMTZfMTQyNTUwODg0OTEzNF80NTYyXzU4MjgmcmFuaz0w?app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg",
+                  "icon": "http://download.st.vcdn.nokia.com/p/d/places2_stg/icons/categories/38.icon",
+                  "id": "276u3360-8c971b44cb364d8ba89c117975302fc3",
+                  "position": [
+                               52.39953,
+                               13.04828
+                               ],
+                  "title": "Brandenburger Tor",
+                  "type": "urn:nlp-types:place",
+                  "vicinity": "Brandenburger Stra\u00dfe\n14467 Potsdam\nGermany"
+                  },
+                  {
+                  "averageRating": 1.38,
+                  "category": {
+                  "href": "http://places.cit.api.here.com/places/v1/categories/places/landmark-attraction?app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg",
+                  "id": "landmark-attraction",
+                  "system": "places",
+                  "title": "Landmark/Attraction",
+                  "type": "urn:nlp-types:category"
+                  },
+                  "chaosOrangutanField": "we reserve the right to add new fields at any time",
+                  "distance": 1819544,
+                  "having": [],
+                  "href": "http://places.cit.api.here.com/places/v1/places/276u33db-8ee2e0de906e459cbade0593986debe9;context=Zmxvdy1pZD1iYmE3Nzc3Mi01MzBkLTUwYmUtOTRiZS1mZDYxODIxNzJkMTZfMTQyNTUwODg0OTEzNF80NTYyXzU4MjgmcmFuaz0x?app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg",
+                  "icon": "http://download.st.vcdn.nokia.com/p/d/places2_stg/icons/categories/38.icon",
+                  "id": "276u33db-8ee2e0de906e459cbade0593986debe9",
+                  "position": [
+                               52.51628,
+                               13.37768
+                               ],
+                  "title": "Brandenburg Gate (Brandenburger Tor)",
+                  "type": "urn:nlp-types:place",
+                  "vicinity": "Pariser Platz\n10117 Berlin\nGermany"
+                  }
+                  ]
+    },
+    "search": {
+        "context": {
+            "chaosNihonzaruField": "we reserve the right to add new fields at any time",
+            "href": "http://places.cit.api.here.com/places/v1/places/loc-dmVyc2lvbj0xO3RpdGxlPTUyLjAlMkMtMTMuNDEwNTM7bGF0PTUyLjA7bG9uPS0xMy40MTA1Mztzb3VyY2VTeXN0ZW09aW50ZXJuYWw;context=c2VhcmNoQ29udGV4dD0x?app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg",
+            "location": {
+                "position": [
+                             52.0,
+                             -13.41053
+                             ]
+            },
+            "type": "urn:nlp-types:place"
+        }
+    }
+}

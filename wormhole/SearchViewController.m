@@ -99,6 +99,9 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
         self.searchController = searchController;
     }
 
+    // To minimize the number of requests, wait for 1 second without typing
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(downloadData) object:nil];
+
     NSString *query = self.searchController.searchBar.text;
     if (query.length < 3) {
         self.places = nil;
@@ -108,8 +111,15 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
         return;
     }
 
-    // To minimize the number of requests, wait for 1 second without typing
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(downloadData) object:nil];
+
+    [self performSelector:@selector(downloadData) withObject:nil afterDelay:1];
+}
+
+#pragma mark - Convenience methods
+
+- (void)downloadData
+{
+    NSString *query = self.searchController.searchBar.text;
     self.dataTask = [HereAPI requestSearchWithQuery:query location:self.locationManager.location success:^(NSArray *elements) {
 
         self.places = [NSMutableArray arrayWithArray:elements];
@@ -123,13 +133,6 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
         NSLog(@"Error: %@", error);
     }];
 
-    [self performSelector:@selector(downloadData) withObject:nil afterDelay:1];
-}
-
-#pragma mark - Convenience methods
-
-- (void)downloadData
-{
     [self.dataTask resume];
 }
 

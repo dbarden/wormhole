@@ -25,6 +25,7 @@
 		D0C68DA61AA7A7FB00827910 /* MKPolyline+Wormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C68DA51AA7A7FB00827910 /* MKPolyline+Wormhole.m */; };
 		D0C68DA91AA7AE0400827910 /* RouteSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C68DA81AA7AE0400827910 /* RouteSpecHelper.m */; };
 		D0C68DAC1AA7AE8200827910 /* LegSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C68DAB1AA7AE8200827910 /* LegSpecHelper.m */; };
+		D0C68DAF1AA7B9B700827910 /* HereAPI+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C68DAE1AA7B9B700827910 /* HereAPI+Testing.m */; };
 		D0FBB98F1AA4ECEB001D5270 /* HereAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB98E1AA4ECEB001D5270 /* HereAPI.m */; };
 		D0FBB9981AA4F67D001D5270 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB9971AA4F67D001D5270 /* SearchViewController.m */; };
 		D0FBB99B1AA4FB60001D5270 /* CreateItineraryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB99A1AA4FB60001D5270 /* CreateItineraryDataSource.m */; };
@@ -33,6 +34,8 @@
 		D0FBB9A61AA584BE001D5270 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB9A51AA584BE001D5270 /* Route.m */; };
 		D0FBBA9A1AA5D9AE001D5270 /* ViewItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBBA991AA5D9AE001D5270 /* ViewItineraryViewController.m */; };
 		D0FBBA9C1AA5E257001D5270 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FBBA9B1AA5E257001D5270 /* MapKit.framework */; };
+		D0FF387D1AA7C1AC009F1144 /* PlacesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = D0FF387C1AA7C1AC009F1144 /* PlacesResponse.json */; };
+		D0FF38801AA7C21E009F1144 /* HereAPISpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF387F1AA7C21E009F1144 /* HereAPISpecHelper.m */; };
 		EE2D4E30F272362330B035BA /* libPods-wormholeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC951F3FD57E0BACDF1C753 /* libPods-wormholeTests.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +88,8 @@
 		D0C68DA81AA7AE0400827910 /* RouteSpecHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSpecHelper.m; sourceTree = "<group>"; };
 		D0C68DAA1AA7AE8200827910 /* LegSpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegSpecHelper.h; sourceTree = "<group>"; };
 		D0C68DAB1AA7AE8200827910 /* LegSpecHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegSpecHelper.m; sourceTree = "<group>"; };
+		D0C68DAD1AA7B9B700827910 /* HereAPI+Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HereAPI+Testing.h"; sourceTree = "<group>"; };
+		D0C68DAE1AA7B9B700827910 /* HereAPI+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HereAPI+Testing.m"; sourceTree = "<group>"; };
 		D0FBB98D1AA4ECEB001D5270 /* HereAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HereAPI.h; path = wormhole/HereAPI.h; sourceTree = "<group>"; };
 		D0FBB98E1AA4ECEB001D5270 /* HereAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HereAPI.m; path = wormhole/HereAPI.m; sourceTree = "<group>"; };
 		D0FBB9961AA4F67D001D5270 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -99,6 +104,9 @@
 		D0FBBA981AA5D9AE001D5270 /* ViewItineraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewItineraryViewController.h; sourceTree = "<group>"; };
 		D0FBBA991AA5D9AE001D5270 /* ViewItineraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewItineraryViewController.m; sourceTree = "<group>"; };
 		D0FBBA9B1AA5E257001D5270 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D0FF387C1AA7C1AC009F1144 /* PlacesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PlacesResponse.json; sourceTree = "<group>"; };
+		D0FF387E1AA7C21E009F1144 /* HereAPISpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HereAPISpecHelper.h; sourceTree = "<group>"; };
+		D0FF387F1AA7C21E009F1144 /* HereAPISpecHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HereAPISpecHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +209,11 @@
 				D0C68DA81AA7AE0400827910 /* RouteSpecHelper.m */,
 				D0C68DAA1AA7AE8200827910 /* LegSpecHelper.h */,
 				D0C68DAB1AA7AE8200827910 /* LegSpecHelper.m */,
+				D0C68DAD1AA7B9B700827910 /* HereAPI+Testing.h */,
+				D0C68DAE1AA7B9B700827910 /* HereAPI+Testing.m */,
+				D0FF387C1AA7C1AC009F1144 /* PlacesResponse.json */,
+				D0FF387E1AA7C21E009F1144 /* HereAPISpecHelper.h */,
+				D0FF387F1AA7C21E009F1144 /* HereAPISpecHelper.m */,
 			);
 			path = wormholeTests;
 			sourceTree = "<group>";
@@ -366,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FF387D1AA7C1AC009F1144 /* PlacesResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,11 +446,13 @@
 			files = (
 				D0FBB9A21AA57FFB001D5270 /* HereAPISpec.m in Sources */,
 				D04D81EC1AA626AC00F78EF1 /* WaypointSpec.m in Sources */,
+				D0C68DAF1AA7B9B700827910 /* HereAPI+Testing.m in Sources */,
 				D0C68DA91AA7AE0400827910 /* RouteSpecHelper.m in Sources */,
 				D0C68DAC1AA7AE8200827910 /* LegSpecHelper.m in Sources */,
 				D04D81F11AA62A1700F78EF1 /* ManeuverSpec.m in Sources */,
 				D04D81F61AA62EB900F78EF1 /* LegSpec.m in Sources */,
 				D04D81F81AA6338700F78EF1 /* RouteSpec.m in Sources */,
+				D0FF38801AA7C21E009F1144 /* HereAPISpecHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

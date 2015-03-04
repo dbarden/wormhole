@@ -10,8 +10,6 @@
 #import "Place.h"
 #import "Route.h"
 
-static NSString *const SearchBaseURL = @"http://places.cit.api.here.com/places/v1/discover/search";
-
 static NSString *const HereTransportMapping[3] = {
     @"fastest;pedestrian",
     @"fastest;publicTransport",
@@ -92,8 +90,8 @@ static NSString *const HereTransportMapping[3] = {
     urlComponents.queryItems = @[appId, appCode, queryItem, at, size, tfItem];
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:urlComponents.URL];
 
-
     NSLog(@"Requesting URL: %@", requestURL);
+
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:requestURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -119,8 +117,6 @@ static NSString *const HereTransportMapping[3] = {
 
     return dataTask;
 }
-
-// TODO: Add language
 - (NSURLSessionDataTask *)requestRouteWithPlaces:(NSArray *)places
                                             mode:(HereTransportMode)transportMode
                                          success:(void (^)(Route *route))success
