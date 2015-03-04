@@ -150,9 +150,6 @@
 		D0B75F2B1AA4B057006DB445 = {
 			isa = PBXGroup;
 			children = (
-				D0C68D9E1AA79E5400827910 /* HereTransportModes.h */,
-				D0FBB9A31AA584A1001D5270 /* Models */,
-				D0FBB98C1AA4ECC3001D5270 /* API */,
 				D0B75F361AA4B058006DB445 /* wormhole */,
 				D0B75F501AA4B058006DB445 /* wormholeTests */,
 				D0B75F351AA4B058006DB445 /* Products */,
@@ -173,6 +170,8 @@
 		D0B75F361AA4B058006DB445 /* wormhole */ = {
 			isa = PBXGroup;
 			children = (
+				D0FBB98C1AA4ECC3001D5270 /* API */,
+				D0FBB9A31AA584A1001D5270 /* Models */,
 				D0FBBA971AA5D986001D5270 /* View Itinerary */,
 				D0FBB99C1AA50A18001D5270 /* Create Itinerary */,
 				D0FBB99D1AA50A2E001D5270 /* Search Itinerary */,
@@ -200,20 +199,13 @@
 			isa = PBXGroup;
 			children = (
 				D0B75F511AA4B058006DB445 /* Supporting Files */,
-				D0FBB9A11AA57FFB001D5270 /* HereAPISpec.m */,
+				D0FF38811AA7C4AA009F1144 /* HereAPISpec */,
 				D04D81EB1AA626AC00F78EF1 /* WaypointSpec.m */,
 				D04D81F01AA62A1700F78EF1 /* ManeuverSpec.m */,
 				D04D81F51AA62EB900F78EF1 /* LegSpec.m */,
-				D04D81F71AA6338700F78EF1 /* RouteSpec.m */,
-				D0C68DA71AA7AE0400827910 /* RouteSpecHelper.h */,
-				D0C68DA81AA7AE0400827910 /* RouteSpecHelper.m */,
+				D0FF38821AA7C4B8009F1144 /* RouteSpec */,
 				D0C68DAA1AA7AE8200827910 /* LegSpecHelper.h */,
 				D0C68DAB1AA7AE8200827910 /* LegSpecHelper.m */,
-				D0C68DAD1AA7B9B700827910 /* HereAPI+Testing.h */,
-				D0C68DAE1AA7B9B700827910 /* HereAPI+Testing.m */,
-				D0FF387C1AA7C1AC009F1144 /* PlacesResponse.json */,
-				D0FF387E1AA7C21E009F1144 /* HereAPISpecHelper.h */,
-				D0FF387F1AA7C21E009F1144 /* HereAPISpecHelper.m */,
 			);
 			path = wormholeTests;
 			sourceTree = "<group>";
@@ -229,10 +221,12 @@
 		D0FBB98C1AA4ECC3001D5270 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				D0C68D9E1AA79E5400827910 /* HereTransportModes.h */,
 				D0FBB98D1AA4ECEB001D5270 /* HereAPI.h */,
 				D0FBB98E1AA4ECEB001D5270 /* HereAPI.m */,
 			);
 			name = API;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D0FBB99C1AA50A18001D5270 /* Create Itinerary */ = {
@@ -274,6 +268,7 @@
 				D0C68DA51AA7A7FB00827910 /* MKPolyline+Wormhole.m */,
 			);
 			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D0FBBA971AA5D986001D5270 /* View Itinerary */ = {
@@ -283,6 +278,29 @@
 				D0FBBA991AA5D9AE001D5270 /* ViewItineraryViewController.m */,
 			);
 			name = "View Itinerary";
+			sourceTree = "<group>";
+		};
+		D0FF38811AA7C4AA009F1144 /* HereAPISpec */ = {
+			isa = PBXGroup;
+			children = (
+				D0FBB9A11AA57FFB001D5270 /* HereAPISpec.m */,
+				D0C68DAD1AA7B9B700827910 /* HereAPI+Testing.h */,
+				D0C68DAE1AA7B9B700827910 /* HereAPI+Testing.m */,
+				D0FF387C1AA7C1AC009F1144 /* PlacesResponse.json */,
+				D0FF387E1AA7C21E009F1144 /* HereAPISpecHelper.h */,
+				D0FF387F1AA7C21E009F1144 /* HereAPISpecHelper.m */,
+			);
+			name = HereAPISpec;
+			sourceTree = "<group>";
+		};
+		D0FF38821AA7C4B8009F1144 /* RouteSpec */ = {
+			isa = PBXGroup;
+			children = (
+				D04D81F71AA6338700F78EF1 /* RouteSpec.m */,
+				D0C68DA71AA7AE0400827910 /* RouteSpecHelper.h */,
+				D0C68DA81AA7AE0400827910 /* RouteSpecHelper.m */,
+			);
+			name = RouteSpec;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -9,8 +9,10 @@
 #import "HereAPI+Testing.h"
 #import "HereAPI.h"
 
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation HereAPI(Testing)
+#pragma clang diagnostic pop
 
 + (void)resetAPIKeys
 {
