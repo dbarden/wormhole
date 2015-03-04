@@ -1,6 +1,8 @@
 platform :ios, "8.0"
 inhibit_all_warnings!
 
+target "wormhole" do
+end
 
 target "wormholeTests" do
   pod 'Specta', '~> 0.3.2'

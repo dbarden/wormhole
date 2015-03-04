@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ACA57549D18BBC4B10AE6D17 /* libPods-wormhole.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B9762547A575A3FA6E111A /* libPods-wormhole.a */; };
 		D04D81EA1AA6248F00F78EF1 /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81E91AA6248F00F78EF1 /* Waypoint.m */; };
 		D04D81EC1AA626AC00F78EF1 /* WaypointSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81EB1AA626AC00F78EF1 /* WaypointSpec.m */; };
 		D04D81EF1AA6286700F78EF1 /* Maneuver.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D81EE1AA6286700F78EF1 /* Maneuver.m */; };
@@ -97,7 +96,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0FBBA9C1AA5E257001D5270 /* MapKit.framework in Frameworks */,
-				ACA57549D18BBC4B10AE6D17 /* libPods-wormhole.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,11 +262,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0B75F571AA4B058006DB445 /* Build configuration list for PBXNativeTarget "wormhole" */;
 			buildPhases = (
-				57C417991C8B836F598AA3DE /* Check Pods Manifest.lock */,
 				D0B75F301AA4B058006DB445 /* Sources */,
 				D0B75F311AA4B058006DB445 /* Frameworks */,
 				D0B75F321AA4B058006DB445 /* Resources */,
-				E7840E5EBD816470A3D4BDC2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -373,21 +369,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wormholeTests/Pods-wormholeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		57C417991C8B836F598AA3DE /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		8EC87FF2D55E4DADA289A36F /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,21 +382,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E7840E5EBD816470A3D4BDC2 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wormhole/Pods-wormhole-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -564,7 +530,6 @@
 		};
 		D0B75F581AA4B058006DB445 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 987A6E07A6E0729946D3C770 /* Pods-wormhole.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = wormhole/Info.plist;
@@ -588,7 +553,6 @@
 		};
 		D0B75F591AA4B058006DB445 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB5B0086A8935EA16CD521F6 /* Pods-wormhole.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = wormhole/Info.plist;

@@ -33,13 +33,14 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     self.mapView.delegate = self;
     self.routeConfigurations = [NSMutableDictionary dictionary];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     NSURLSessionDataTask *pedestrianRouteDataTask = [HereAPI requestRouteWithPlaces:self.places mode:HereTransportModePedestrian success:^(Route *route) {
         [self updateWithRoute:route];
     } failure:^(NSError *error) {
