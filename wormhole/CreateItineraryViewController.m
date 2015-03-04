@@ -62,12 +62,6 @@ static NSString *const cellIdentifier = @"CellIdentifier";
 - (IBAction)editTableView:(id)sender
 {
     self.tableView.editing = !self.tableView.editing;
-    if (self.tableView.editing) {
-        self.tableView.editing = NO;
-    } else {
-        self.editTableView.title = NSLocalizedString(@"Edit", nil);
-        self.tableView.editing = YES;
-    }
 }
 
 #pragma mark - UISearchControllerDelegate
@@ -93,7 +87,7 @@ static NSString *const cellIdentifier = @"CellIdentifier";
 #pragma mark - Helper Methods
 - (UIAlertController *)createAlertController
 {
-    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"dismiss", nil) style:UIAlertActionStyleDefault handler:nil];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"failure", nil)
                                                                              message:NSLocalizedString(@"two_points_warning", nil)
                                                                       preferredStyle:UIAlertControllerStyleAlert];

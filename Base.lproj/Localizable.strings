@@ -18,3 +18,6 @@
 "public_transport" = "Public Transport";
 "car" = "Car";
 "no_search_results" = "No Results Found";
+"two_points_warning" = "Please add at least 2 points";
+"failure" = "A failure happened";
+"dismiss" = "Dismiss";

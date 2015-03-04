@@ -102,18 +102,18 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
 - (IBAction)segmentValueChanged:(UISegmentedControl *)sender
 {
     if (sender.selectedSegmentIndex == 0) {
-        Route *route = self.routeConfigurations[@"pedestrian"];
+        Route *route = self.routeConfigurations[@(HereTransportModePedestrian)];
         if (route) {
             [self updateWithRoute:route];
         }
     } else if (sender.selectedSegmentIndex == 1) {
-        Route *route = self.routeConfigurations[@"publicTransport"];
+        Route *route = self.routeConfigurations[@(HereTransportModePublicTransport)];
         if (route) {
             [self updateWithRoute:route];
         }
 
     } else if (sender.selectedSegmentIndex == 2) {
-        Route *route = self.routeConfigurations[@"car"];
+        Route *route = self.routeConfigurations[@(HereTransportModeCar)];
         if (route) {
             [self updateWithRoute:route];
         }
@@ -141,12 +141,12 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /***** Section 0 ****/
+    /**** Section General Information ****/
     if (indexPath.section == 0) {
 
         UITableViewCell *cell = [self cellForGeneralInformationAtRow:indexPath.row tableView:tableView];
         return cell;
-    /***** Section 1 ****/
+    /**** Section Waypoints ****/
     } else if (indexPath.section == 1) {
 
         UITableViewCell *cell = [self cellWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Default" tableView:tableView];
@@ -154,7 +154,7 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
         cell.textLabel.text = waypoint.title;
         cell.textLabel.numberOfLines = 0;
         return cell;
-    /***** Section 1 ****/
+    /**** Section Maneuvers ****/
     } else {
         UITableViewCell *cell = [self cellWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Default" tableView:tableView];
         Leg *leg = self.route.legs[indexPath.section -2];
@@ -202,7 +202,7 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
 }
 
 
-// It should go in a category somewhere else
+// It probably should go in a category somewhere else :)
 - (UITableViewCell *)cellWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableView:(UITableView *)tableView
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
@@ -225,7 +225,8 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
         cell.detailTextLabel.text = formattedString ? formattedString : NSLocalizedString(@"loading", nil);
     } else if (row == 2) {
         cell.textLabel.text = NSLocalizedString(@"transport_mode", nil);
-        cell.detailTextLabel.text = [self.route localizedTransportName];
+        NSString *formattedString = [self.route localizedTransportName];
+        cell.detailTextLabel.text = formattedString ? formattedString : NSLocalizedString(@"loading", nil);
     }
 
     return cell;
