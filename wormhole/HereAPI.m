@@ -131,7 +131,6 @@ static NSString *const HereTransportMapping[3] = {
     urlComponents.host = @"route.cit.api.here.com";
     urlComponents.path = @"/routing/7.2/calculateroute.json";
 
-
     __block NSMutableArray *queryItems = [NSMutableArray array];
     NSURLQueryItem *appIdQueryItem = [NSURLQueryItem queryItemWithName:@"app_id" value:self.appId];
     NSURLQueryItem *appCodeQueryItem = [NSURLQueryItem queryItemWithName:@"app_code" value:self.appCode];
@@ -154,8 +153,6 @@ static NSString *const HereTransportMapping[3] = {
     urlComponents.queryItems = queryItems;
 
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:urlComponents.URL];
-
-    NSLog(@"Requesting %@", requestURL.URL.absoluteString);
 
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:requestURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 

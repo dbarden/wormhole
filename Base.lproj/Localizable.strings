@@ -14,6 +14,7 @@
 "general_information" = "General Information";
 "please_three_chars" = "Please type at least 3 characters";
 "loading" = "Loading";
-"pedestrian" = "Pedestrian";
+"pedestrian" = "Walking";
 "public_transport" = "Public Transport";
 "car" = "Car";
+"no_search_results" = "No Results Found";

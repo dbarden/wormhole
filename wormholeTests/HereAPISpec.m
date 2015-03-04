@@ -14,4 +14,9 @@
 
 SpecBegin(HereAPI)
 
+describe(@"HereApi", ^{
+    it(@"should create a request to places", ^{
+        
+    });
+})
 SpecEnd

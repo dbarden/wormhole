@@ -69,9 +69,11 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 
         cell.textLabel.text = place.title;
         cell.detailTextLabel.text = place.vicinity;
-    } else {
+    } else if (!self.places) {
         cell.textLabel.text = NSLocalizedString(@"please_three_chars", nil);
         cell.detailTextLabel.text = nil;
+    } else {
+        cell.textLabel.text = NSLocalizedString(@"no_search_results", nil);
     }
 
     return cell;
@@ -97,10 +99,11 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
         self.searchController = searchController;
     }
 
-    NSString *query = searchController.searchBar.text;
+    NSString *query = self.searchController.searchBar.text;
     if (query.length < 3) {
         self.places = nil;
         self.selectedPlace = nil;
+        [self.dataTask cancel];
         [self.tableView reloadData];
         return;
     }
@@ -127,7 +130,6 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 
 - (void)downloadData
 {
-    NSLog(@"Starting the download");
     [self.dataTask resume];
 }
 
