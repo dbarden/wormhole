@@ -21,6 +21,8 @@
 		D0B75F431AA4B058006DB445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B75F411AA4B058006DB445 /* Main.storyboard */; };
 		D0B75F451AA4B058006DB445 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B75F441AA4B058006DB445 /* Images.xcassets */; };
 		D0B75F481AA4B058006DB445 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B75F461AA4B058006DB445 /* LaunchScreen.xib */; };
+		D0C68DA31AA7A41100827910 /* Route+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C68DA21AA7A41100827910 /* Route+Formatting.m */; };
+		D0C68DA61AA7A7FB00827910 /* MKPolyline+Wormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C68DA51AA7A7FB00827910 /* MKPolyline+Wormhole.m */; };
 		D0FBB98F1AA4ECEB001D5270 /* HereAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB98E1AA4ECEB001D5270 /* HereAPI.m */; };
 		D0FBB9981AA4F67D001D5270 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB9971AA4F67D001D5270 /* SearchViewController.m */; };
 		D0FBB99B1AA4FB60001D5270 /* CreateItineraryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBB99A1AA4FB60001D5270 /* CreateItineraryDataSource.m */; };
@@ -72,6 +74,11 @@
 		D0C68D991AA7999400827910 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
 		D0C68D9A1AA7999400827910 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D0C68D9B1AA7999400827910 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D0C68D9E1AA79E5400827910 /* HereTransportModes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HereTransportModes.h; path = wormhole/HereTransportModes.h; sourceTree = "<group>"; };
+		D0C68DA11AA7A41100827910 /* Route+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Route+Formatting.h"; path = "wormhole/Route+Formatting.h"; sourceTree = "<group>"; };
+		D0C68DA21AA7A41100827910 /* Route+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Route+Formatting.m"; path = "wormhole/Route+Formatting.m"; sourceTree = "<group>"; };
+		D0C68DA41AA7A7FB00827910 /* MKPolyline+Wormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKPolyline+Wormhole.h"; path = "wormhole/MKPolyline+Wormhole.h"; sourceTree = "<group>"; };
+		D0C68DA51AA7A7FB00827910 /* MKPolyline+Wormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MKPolyline+Wormhole.m"; path = "wormhole/MKPolyline+Wormhole.m"; sourceTree = "<group>"; };
 		D0FBB98D1AA4ECEB001D5270 /* HereAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HereAPI.h; path = wormhole/HereAPI.h; sourceTree = "<group>"; };
 		D0FBB98E1AA4ECEB001D5270 /* HereAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HereAPI.m; path = wormhole/HereAPI.m; sourceTree = "<group>"; };
 		D0FBB9961AA4F67D001D5270 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -129,6 +136,7 @@
 		D0B75F2B1AA4B057006DB445 = {
 			isa = PBXGroup;
 			children = (
+				D0C68D9E1AA79E5400827910 /* HereTransportModes.h */,
 				D0FBB9A31AA584A1001D5270 /* Models */,
 				D0FBB98C1AA4ECC3001D5270 /* API */,
 				D0B75F361AA4B058006DB445 /* wormhole */,
@@ -237,6 +245,10 @@
 				D04D81EE1AA6286700F78EF1 /* Maneuver.m */,
 				D04D81F21AA62BFB00F78EF1 /* Leg.h */,
 				D04D81F31AA62BFB00F78EF1 /* Leg.m */,
+				D0C68DA11AA7A41100827910 /* Route+Formatting.h */,
+				D0C68DA21AA7A41100827910 /* Route+Formatting.m */,
+				D0C68DA41AA7A7FB00827910 /* MKPolyline+Wormhole.h */,
+				D0C68DA51AA7A7FB00827910 /* MKPolyline+Wormhole.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -393,6 +405,8 @@
 				D0FBB9A61AA584BE001D5270 /* Route.m in Sources */,
 				D0B75F3D1AA4B058006DB445 /* AppDelegate.m in Sources */,
 				D0FBB9A01AA514CA001D5270 /* Place.m in Sources */,
+				D0C68DA31AA7A41100827910 /* Route+Formatting.m in Sources */,
+				D0C68DA61AA7A7FB00827910 /* MKPolyline+Wormhole.m in Sources */,
 				D0FBB99B1AA4FB60001D5270 /* CreateItineraryDataSource.m in Sources */,
 				D0FBBA9A1AA5D9AE001D5270 /* ViewItineraryViewController.m in Sources */,
 				D04D81EA1AA6248F00F78EF1 /* Waypoint.m in Sources */,

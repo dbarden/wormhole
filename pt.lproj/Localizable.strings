@@ -13,3 +13,7 @@
 "total_distance" = "Distancia total";
 "general_information" = "Informações Gerais";
 "please_three_chars" = "Por favor, insira ao menos 3 letras";
+"loading" = "Carregando";
+"pedestrian" = "Caminhando";
+"public_transport" = "Transporte Público";
+"car" = "Carro";

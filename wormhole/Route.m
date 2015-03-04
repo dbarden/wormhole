@@ -22,7 +22,7 @@ static NSString *const TransportModesKey = @"transportModes";
 
 @property (nonatomic, strong, readwrite) NSArray *waypoints;
 @property (nonatomic, strong, readwrite) NSArray *legs;
-@property (nonatomic, copy, readwrite) NSString *transportMode;
+@property (nonatomic, assign, readwrite) HereTransportMode transportMode;
 @property (nonatomic, assign, readwrite) NSUInteger distance;
 @property (nonatomic, assign, readwrite) NSTimeInterval travelTime;
 
@@ -36,7 +36,7 @@ static NSString *const TransportModesKey = @"transportModes";
     if (self) {
         _distance = [dictionary[SummaryKey][DistanceKey] unsignedIntegerValue];
         _travelTime = [dictionary[SummaryKey][BaseTimeKey] doubleValue];
-        _transportMode = [dictionary[ModeKey][TransportModesKey] firstObject];
+        _transportMode = [self transportModeToEnum:[dictionary[ModeKey][TransportModesKey] firstObject]];
 
         NSMutableArray *waypointsMutableArray = [NSMutableArray array];
         for (NSDictionary *waypointDict in dictionary[WaypointsKey]) {
@@ -81,6 +81,18 @@ static NSString *const TransportModesKey = @"transportModes";
     region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1;
 
     return region;
+}
+
+- (HereTransportMode)transportModeToEnum:(NSString *)string
+{
+    if ([string isEqualToString:@"pedestrian"]) {
+        return  HereTransportModePedestrian;
+    } else if ([string isEqualToString:@"publicTransport"]) {
+        return HereTransportModePublicTransport;
+    } else if ([string isEqualToString:@"car"]) {
+        return HereTransportModeCar;
+    }
+    return 0;
 }
 
 @end

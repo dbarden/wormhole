@@ -9,11 +9,13 @@
 @import Foundation;
 @import MapKit;
 
+#import "HereTransportModes.h"
+
 @interface Route : NSObject
 
 @property (nonatomic, strong, readonly) NSArray *waypoints;
 @property (nonatomic, strong, readonly) NSArray *legs;
-@property (nonatomic, copy, readonly) NSString *transportMode;
+@property (nonatomic, assign, readonly) HereTransportMode transportMode;
 @property (nonatomic, assign, readonly) NSUInteger distance;
 @property (nonatomic, assign, readonly) NSTimeInterval travelTime;
 

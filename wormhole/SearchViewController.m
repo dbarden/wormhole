@@ -63,8 +63,12 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
     }
 
     if (self.places.count > 0) {
-        cell.textLabel.text = [self.places[indexPath.row] valueForKey:@"title"];
-        cell.detailTextLabel.text = [self.places[indexPath.row] valueForKey:@"vicinity"];
+        Place *place = (Place *)self.places[indexPath.row];
+
+        NSAssert([place isKindOfClass:[Place class]], @"Value is not of type Place");
+
+        cell.textLabel.text = place.title;
+        cell.detailTextLabel.text = place.vicinity;
     } else {
         cell.textLabel.text = NSLocalizedString(@"please_three_chars", nil);
         cell.detailTextLabel.text = nil;
@@ -89,7 +93,6 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, searchController.searchBar.text);
     if (!self.searchController) {
         self.searchController = searchController;
     }
@@ -119,6 +122,8 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 
     [self performSelector:@selector(downloadData) withObject:nil afterDelay:1];
 }
+
+#pragma mark - Convenience methods
 
 - (void)downloadData
 {

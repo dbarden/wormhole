@@ -7,10 +7,12 @@
 //
 
 @import MapKit;
+#import "MKPolyline+Wormhole.h"
 
 #import "ViewItineraryViewController.h"
 #import "HereAPI.h"
 #import "Route.h"
+#import "Route+Formatting.h"
 #import "Maneuver.h"
 #import "Leg.h"
 #import "Waypoint.h"
@@ -66,18 +68,18 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
 
 - (void)updateWithRoute:(Route *)route
 {
-    self.routeConfigurations[route.transportMode] = route;
+    self.routeConfigurations[@(route.transportMode)] = route;
 
     // It's horrible, I know
-    if (self.segmentedControl.selectedSegmentIndex == 0 && ![route.transportMode isEqualToString:@"pedestrian"] ) {
+    if (self.segmentedControl.selectedSegmentIndex == 0 && !(route.transportMode == HereTransportModePedestrian) ) {
         return;
     }
 
-    if (self.segmentedControl.selectedSegmentIndex == 1 && ![route.transportMode isEqualToString:@"publicTransport"]) {
+    if (self.segmentedControl.selectedSegmentIndex == 1 && !(route.transportMode == HereTransportModePublicTransport)) {
         return;
     }
 
-    if (self.segmentedControl.selectedSegmentIndex == 2 && ![route.transportMode isEqualToString:@"car"]) {
+    if (self.segmentedControl.selectedSegmentIndex == 2 && !(route.transportMode == HereTransportModeCar)) {
         return;
     }
 
@@ -88,27 +90,13 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
     self.route = route;
 
     for (Leg *leg in route.legs) {
-        NSArray *maneuvers = leg.maneuvers;
-
-        CLLocationCoordinate2D *coordinateArray = malloc(sizeof(CLLocationCoordinate2D) * maneuvers.count);
-
-        int caIndex = 0;
-        for (Maneuver *maneuver in maneuvers) {
-            coordinateArray[caIndex] = maneuver.coordinate;
-            caIndex++;
-        }
-
-        MKPolyline *lines = [MKPolyline polylineWithCoordinates:coordinateArray
-                                                          count:maneuvers.count];
-
-        free(coordinateArray);
+        MKPolyline *line = [[MKPolyline alloc] initWithLeg:leg];
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.mapView addOverlay:lines];
+            [self.mapView addOverlay:line];
             [self.tableView reloadData];
         });
     }
-
 }
 
 - (IBAction)segmentValueChanged:(UISegmentedControl *)sender
@@ -155,46 +143,20 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
 {
     /***** Section 0 ****/
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"General"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"General"];
-        }
-        // Ok, it's already 23:00. Maybe I should call it a day
-        if(indexPath.row == 0){
-            cell.textLabel.text = NSLocalizedString(@"total_time", 0);
-            NSDateComponentsFormatter *componentFormatter = [[NSDateComponentsFormatter alloc] init];
 
-            componentFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyleAbbreviated;
-            componentFormatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorDropAll;
-
-            NSString *formattedString = [componentFormatter stringFromTimeInterval:self.route.travelTime];
-
-            cell.detailTextLabel.text = formattedString;
-        } else if (indexPath.row == 1) {
-
-            cell.textLabel.text = NSLocalizedString(@"total_distance", nil);
-
-            MKDistanceFormatter *distanceFormatter = [[MKDistanceFormatter alloc] init];
-            cell.detailTextLabel.text = [distanceFormatter stringFromDistance:self.route.distance];
-        } else if (indexPath.row == 2) {
-            cell.textLabel.text = NSLocalizedString(@"transport_mode", nil);
-            cell.detailTextLabel.text = self.route.transportMode;
-        }
+        UITableViewCell *cell = [self cellForGeneralInformationAtRow:indexPath.row tableView:tableView];
         return cell;
     /***** Section 1 ****/
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Waypoints"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WayPoints"];
-        }
+
+        UITableViewCell *cell = [self cellWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Default" tableView:tableView];
         Waypoint *waypoint = self.route.waypoints[indexPath.row];
         cell.textLabel.text = waypoint.title;
+        cell.textLabel.numberOfLines = 0;
         return cell;
+    /***** Section 1 ****/
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Maneuver"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Maneuver"];
-        }
+        UITableViewCell *cell = [self cellWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Default" tableView:tableView];
         Leg *leg = self.route.legs[indexPath.section -2];
         Maneuver *maneuver = leg.maneuvers[indexPath.row];
         cell.textLabel.text = maneuver.instructions;
@@ -237,5 +199,35 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
     polylineView.lineWidth = 10.0;
 
     return polylineView;
+}
+
+
+// It should go in a category somewhere else
+- (UITableViewCell *)cellWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier tableView:(UITableView *)tableView
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
+    }
+    return cell;
+}
+
+- (UITableViewCell *)cellForGeneralInformationAtRow:(NSUInteger)row tableView:(UITableView *)tableView
+{
+    UITableViewCell *cell = [self cellWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"General" tableView:tableView];
+    if (row == 0){
+        cell.textLabel.text = NSLocalizedString(@"total_time", nil);
+        NSString *formattedString = [self.route formattedTravelTime];
+        cell.detailTextLabel.text = formattedString ? formattedString : NSLocalizedString(@"loading", nil);
+    } else if (row == 1) {
+        cell.textLabel.text = NSLocalizedString(@"total_distance", nil);
+        NSString *formattedString = [self.route formattedDistance];
+        cell.detailTextLabel.text = formattedString ? formattedString : NSLocalizedString(@"loading", nil);
+    } else if (row == 2) {
+        cell.textLabel.text = NSLocalizedString(@"transport_mode", nil);
+        cell.detailTextLabel.text = [self.route localizedTransportName];
+    }
+
+    return cell;
 }
 @end

@@ -6,14 +6,10 @@
 //  Copyright (c) 2015 azapp. All rights reserved.
 //
 
+#import "HereTransportModes.h"
 @import Foundation;
 @import CoreLocation;
 
-typedef NS_ENUM(NSInteger, HereTransportMode) {
-    HereTransportModePedestrian,
-    HereTransportModePublicTransport,
-    HereTransportModeCar
-};
 
 @class Route;
 
