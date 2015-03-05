@@ -8,7 +8,6 @@ target "wormholeTests" do
   pod 'Specta', '~> 0.3.2'
   pod 'Expecta', '~> 0.3.2'
   pod 'OHHTTPStubs', '~> 3.1.0'
-  pod 'OCMock', '~> 3.1.1'
 end
 
 # Workaround for XCtest.h that isn't found on Xcode 6

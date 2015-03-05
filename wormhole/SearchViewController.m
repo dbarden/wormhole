@@ -62,20 +62,25 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SearchCellReuseIdentifier];
     }
 
-    if (self.places.count > 0) {
-        Place *place = (Place *)self.places[indexPath.row];
+    if (self.places) {
+        if (self.places.count >0 ){
+            Place *place = (Place *)self.places[indexPath.row];
 
-        NSAssert([place isKindOfClass:[Place class]], @"Value is not of type Place", NULL);
+            NSAssert([place isKindOfClass:[Place class]], @"Value is not of type Place", NULL);
 
-        cell.textLabel.text = place.title;
-        cell.detailTextLabel.text = place.vicinity;
-    } else if (!self.places) {
-        cell.textLabel.text = NSLocalizedString(@"please_three_chars", nil);
-        cell.detailTextLabel.text = nil;
+            cell.textLabel.text = place.title;
+            cell.detailTextLabel.text = place.vicinity;
+        } else {
+            cell.textLabel.text = NSLocalizedString(@"no_search_results", nil);
+            cell.detailTextLabel.text = nil;
+            
+        }
     } else {
-        cell.textLabel.text = NSLocalizedString(@"no_search_results", nil);
-    }
+        NSString *textString = self.dataTask ? NSLocalizedString(@"loading", nil) : NSLocalizedString(@"please_three_chars", nil);;
 
+        cell.textLabel.text = textString;
+        cell.detailTextLabel.text = nil;
+    }
     return cell;
 }
 
@@ -112,6 +117,7 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
         self.places = nil;
         self.selectedPlace = nil;
         [self.dataTask cancel];
+        self.dataTask = nil;
         [self.tableView reloadData];
         return;
     }
