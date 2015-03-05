@@ -95,9 +95,14 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
+    if (!searchController.active) {
+        return;
+    }
+    
     if (!self.searchController) {
         self.searchController = searchController;
     }
+    
 
     // To minimize the number of requests, wait for 1 second without typing
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(downloadData) object:nil];
