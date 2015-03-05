@@ -90,7 +90,7 @@ static NSString *const HereTransportMapping[3] = {
     urlComponents.queryItems = @[appId, appCode, queryItem, at, size, tfItem];
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:urlComponents.URL];
 
-    NSLog(@"Requesting URL: %@", requestURL);
+    NSLog(@"Requesting Places URL: %@", requestURL);
 
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:requestURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
@@ -154,7 +154,7 @@ static NSString *const HereTransportMapping[3] = {
 
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
 
-        if (error || httpResponse.statusCode >= 400) {
+        if (error){
             if (failure) {
                 failure(error);
             }
@@ -169,6 +169,16 @@ static NSString *const HereTransportMapping[3] = {
             }
             return;
         }
+
+        if (httpResponse.statusCode >= 400) {
+            if (failure) {
+                NSString *errorDetails = dictionary[@"details"];
+                NSError *error = [NSError errorWithDomain:@"ApplicationError" code:1 userInfo:@{NSLocalizedDescriptionKey: errorDetails}];
+                failure(error);
+            }
+            return;
+        }
+
 
         Route *route = [[Route alloc] initWithDictionary:[dictionary[@"response"][@"route"] firstObject]];
         if (success) {

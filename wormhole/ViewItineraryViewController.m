@@ -47,7 +47,12 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
     NSURLSessionDataTask *pedestrianRouteDataTask = [HereAPI requestRouteWithPlaces:self.places mode:HereTransportModePedestrian success:^(Route *route) {
         [self updateWithRoute:route];
     } failure:^(NSError *error) {
-        // TODO: Handle error
+        UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"dismiss", nil) style:UIAlertActionStyleDefault handler:nil];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"failure", nil)
+                                                                                 message:[error localizedDescription]
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:dismissAction];
+        [self presentViewController:alertController animated:YES completion:nil];
     }];
     [pedestrianRouteDataTask resume];
 
