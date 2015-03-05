@@ -37,6 +37,7 @@ static NSString *generalSection[2] = {@"Time", @"Distance"};
 {
     [super viewDidLoad];
     self.mapView.delegate = self;
+    self.tableView.allowsSelection = NO;
     self.routeConfigurations = [NSMutableDictionary dictionary];
 }
 
