@@ -65,7 +65,7 @@ static NSString *const SearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
     if (self.places.count > 0) {
         Place *place = (Place *)self.places[indexPath.row];
 
-        NSAssert([place isKindOfClass:[Place class]], @"Value is not of type Place");
+        NSAssert([place isKindOfClass:[Place class]], @"Value is not of type Place", NULL);
 
         cell.textLabel.text = place.title;
         cell.detailTextLabel.text = place.vicinity;
